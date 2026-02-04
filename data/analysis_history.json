@@ -1,0 +1,405 @@
+{
+  "analyses": [
+    {
+      "id": "ROST_1770225635890",
+      "symbol": "ROST",
+      "timestamp": "2026-02-04T18:20:35.615610",
+      "currentPrice": 191.19500732421875,
+      "change": 0.04,
+      "high52w": 194.9199981689453,
+      "low52w": 136.90052639460532,
+      "avgVolume": 2624498,
+      "finalScore": 61,
+      "decision": "BUY",
+      "confidence": 85,
+      "pillars": [
+        {
+          "name": "Technical",
+          "score": 58,
+          "weight": 30,
+          "details": "Technical outlook: NEUTRAL\n- Trend: bullish (+16)\n- Momentum: bullish (+25)\n- Volume: bullish (+20)\n"
+        },
+        {
+          "name": "Fundamental",
+          "score": 55,
+          "weight": 25,
+          "details": "Fundamental analysis for Ross Stores, Inc. (Consumer Cyclical)\nFundamentals: AVERAGE\n- Valuation: we"
+        },
+        {
+          "name": "Sentiment",
+          "score": 66,
+          "weight": 20,
+          "details": "Social sentiment analysis for $ROST\nOverall: VERY BULLISH\n- Bullish sentiment (low volume): Bullish "
+        },
+        {
+          "name": "News",
+          "score": 50,
+          "weight": 10,
+          "details": "News impact"
+        },
+        {
+          "name": "ML Adaptive",
+          "score": 78,
+          "weight": 15,
+          "details": "ML Score: BULLISH (55/100)\nMarket Regime: RANGE (confidence: 60%)\nRecommended pillar weights: {'tech"
+        }
+      ],
+      "analysis": "**Analyse de Ross Stores, Inc. (ROST)**\n\n**Contexte de marché :**  \nRoss Stores, Inc. (ROST), cotée dans le secteur de la consommation cyclique, affiche un prix actuel de 191,20 $, en légère hausse de 0,04 %. Proche de son plus haut sur 52 semaines (194,92 $), l’action montre une dynamique positive par rapport à son plus bas de 136,90 $, reflétant une progression significative sur l’année. Le score final de 61/100 et la recommandation d’achat (BUY) suggèrent un potentiel attractif malgré des signaux mitigés.\n\n**Analyse technique :**  \nLa perspective technique est neutre, mais plusieurs indicateurs penchent vers une tendance haussière. Le trend est bullish (+16), soutenu par un ADX élevé (28,7) indiquant une forte dynamique haussière. Le momentum (+25) et le volume (+20) renforcent cette vision positive, bien que le MACD reste baissier, mais en voie d’affaiblissement, ce qui pourrait signaler un renversement imminent. La volatilité est neutre (+0), suggérant une stabilité relative. Les niveaux de résistance à surveiller se situent autour de 194,92 $, tandis qu’un support clé pourrait se trouver vers 180 $ en cas de repli.\n\n**Analyse fondamentale :**  \nSur le plan fondamental, Ross Stores présente une situation moyenne avec des forces et des faiblesses notables. La valorisation est faible (-20), ce qui pourrait indiquer une surévaluation relative par rapport aux pairs du secteur. Cependant, la croissance (+18), la rentabilité (+30) et la santé financière (+15) sont solides, démontrant une capacité à générer des bénéfices et à maintenir une structure financière saine, des éléments rassurants pour les investisseurs à long terme.\n\n**Sentiment & Social :**  \nLe sentiment général autour de ROST est très haussier (score de 66/100), porté par des publications récentes positives. Les investisseurs sur les réseaux sociaux et plateformes mettent en avant le dépassement des attentes lors des résultats du T3, une révision à la hausse des prévisions annuelles et des perspectives optimistes pour la saison des fêtes. Bien que le volume des discussions reste modéré, l’enthousiasme est palpable et soutient une perception favorable du titre.\n\n**Conclusion :**  \nEn synthèse, Ross Stores (ROST) présente un profil attractif avec une tendance technique haussière, des fondamentaux solides en termes de rentabilité et de croissance, et un sentiment social très positif. Malgré une valorisation quelque peu élevée et un MACD encore baissier, le potentiel de hausse à court terme, soutenu par les récents résultats et les prévisions optimistes, justifie la recommandation d’achat (BUY). Les investisseurs devraient surveiller la résistance des 194,92 $ pour confirmer une poursuite de la dynamique haussière, tout en restant attentifs à un éventuel retournement du MACD.",
+      "savedAt": "2026-02-04T17:20:35.890Z"
+    },
+    {
+      "id": "NBIS_1770193392275",
+      "symbol": "NBIS",
+      "timestamp": "2026-02-04T09:23:11.967641",
+      "currentPrice": 89.94999694824219,
+      "change": 2.03,
+      "high52w": 141.10000610351562,
+      "low52w": 52.880001068115234,
+      "avgVolume": 16859887,
+      "finalScore": 57,
+      "decision": "BUY",
+      "confidence": 85,
+      "pillars": [
+        {
+          "name": "Technical",
+          "score": 49,
+          "weight": 30,
+          "details": "Technical outlook: NEUTRAL\n- Trend: bearish (-23)\n- Momentum: bullish (+25)\n- Volume: bearish (-15)\n- Volatility: bullish (+15)\n\nKey signals:\n  * Oversold (K=13.8, D=16.8)\n  * MACD bearish but weakening\n  * OBV confirms downtrend"
+        },
+        {
+          "name": "Fundamental",
+          "score": 48,
+          "weight": 25,
+          "details": "Fundamental analysis for Nebius Group N.V. (Communication Services)\nFundamentals: AVERAGE\n- Valuation: poor (-45)\n- Growth: good (+15)\n- Profitability: good (+10)\n- Health: good (+20)\n\nKey metrics:\n  * Strong revenue growth (355.1%)\n  * Excellent margin (60.0%)\n  * Very high P/S (62.35)"
+        },
+        {
+          "name": "Sentiment",
+          "score": 75,
+          "weight": 20,
+          "details": "Social sentiment analysis for $NBIS\nOverall: VERY BULLISH\n- Bullish sentiment (medium volume): Twitter sentiment for $NBIS is strongly bullish post-Q2 earnings, driven by 177% ARR growth and ambitious AI cloud expansion plans amid high GPU demand."
+        },
+        {
+          "name": "News",
+          "score": 50,
+          "weight": 10,
+          "details": "News impact"
+        },
+        {
+          "name": "ML Adaptive",
+          "score": 72,
+          "weight": 15,
+          "details": "ML Score: BEARISH (43/100)\nMarket Regime: VOLATILE (confidence: 80%)\nRecommended pillar weights: {'technical': 0.35, 'fundamental': 0.15, 'sentiment': 0.15, 'news': 0.05, 'ml': 0.3}\nKey signals:\n  - Strong trend ADX=34\n  - Near lower BB"
+        }
+      ],
+      "levels": {
+        "stopLoss": 82.44,
+        "stopLossPercent": -8.35,
+        "takeProfit1": 105.86,
+        "takeProfit1Percent": 17.69,
+        "takeProfit2": 113.82,
+        "takeProfit2Percent": 26.54,
+        "riskRewardRatio": "1:2.1 / 1:3.2",
+        "atr": 7.96,
+        "support": 84.12,
+        "resistance": 110.5
+      },
+      "analysis": "**Analyse Financière de Nebius Group N.V. ($NBIS)**\n\n**Contexte de marché :**  \nLe titre Nebius Group N.V. ($NBIS) se négocie actuellement à 89,95 $, en hausse de 2,03 % sur la séance. Malgré une position intermédiaire entre son plus haut (141,10 $) et son plus bas (52,88 $) sur 52 semaines, le titre montre des signaux mixtes avec un score final de 57/100, mais une recommandation d’achat (BUY) soutenue par un fort sentiment positif.\n\n**Analyse technique :**  \nLa tendance générale reste baissière (score de -23), confirmée par un OBV en baisse et un MACD baissier, bien que ce dernier montre des signes d’affaiblissement. Cependant, des signaux encourageants émergent avec un momentum haussier (+25), une volatilité favorable (+15), et des indicateurs de survente (K=13.8, D=16.8) suggérant un possible rebond. Le volume reste néanmoins baissier (-15), incitant à la prudence.\n\n**Analyse fondamentale :**  \nSur le plan fondamental, Nebius Group affiche des performances moyennes (score de 48/100). La croissance est impressionnante avec une augmentation des revenus de 355,1 % et une marge solide de 60,0 %, tandis que la rentabilité et la santé financière sont positives (+10 et +20). Cependant, la valorisation est problématique avec un P/S très élevé de 62,35 (-45), indiquant un risque de surévaluation.\n\n**Sentiment & Social :**  \nLe sentiment des investisseurs est très haussier (score de 75/100), particulièrement sur les réseaux sociaux comme Twitter. Les discussions post-rapport Q2 soulignent une croissance de l’ARR de 177 % et des plans ambitieux d’expansion dans le cloud AI, alimentés par une forte demande de GPU. Ce sentiment positif renforce la confiance dans le potentiel à court terme du titre.\n\n**🎯 Niveaux de trading suggérés :**  \n- **Stop Loss : 82,44 $ (-8,3 %)** - Positionné en dessous du support clé à 84,12 $ pour limiter les pertes en cas de poursuite de la tendance baissière, tout en tenant compte de la volatilité (ATR de 7,96 $).  \n- **Take Profit 1 : 105,86 $ (+17,7 %)** - Cible intermédiaire alignée sur une reprise vers des niveaux de résistance mineurs avant la barrière des 110,50 $, offrant un premier objectif réaliste.  \n- **Take Profit 2 : 113,82 $ (+26,5 %)** - Objectif ambitieux au-delà de la résistance majeure à 110,50 $, capitalisant sur un momentum haussier soutenu par le sentiment positif.  \n- **Ratio Risk/Reward : 1:2.1 / 1:3.2** - Un ratio attractif, indiquant un potentiel de gain significatif par rapport au risque, ce qui justifie une prise de position.\n\n**Conclusion :**  \nMalgré une tendance technique baissière et une valorisation élevée, Nebius Group N.V. présente des opportunités intéressantes grâce à une croissance exceptionnelle, un sentiment haussier marqué et des signaux de survente. La recommandation d’achat (BUY) est maintenue, soutenue par un score ML de 72/100 et des niveaux de trading bien définis offrant un rapport risque/rendement favorable. Une gestion rigoureuse des risques via le stop loss est toutefois conseillée face à la volatilité actuelle.",
+      "savedAt": "2026-02-04T08:23:12.275Z"
+    },
+    {
+      "id": "NEBIUS_1770193315360",
+      "error": "No data for NEBIUS",
+      "symbol": "NEBIUS",
+      "savedAt": "2026-02-04T08:21:55.360Z"
+    },
+    {
+      "id": "NEBIUS_1770193302151",
+      "error": "No data for NEBIUS",
+      "symbol": "NEBIUS",
+      "savedAt": "2026-02-04T08:21:42.151Z"
+    },
+    {
+      "id": "HYMC_1770193097518",
+      "symbol": "HYMC",
+      "timestamp": "2026-02-04T09:18:17.193856",
+      "currentPrice": 42.06999969482422,
+      "change": 19.48,
+      "high52w": 58.72999954223633,
+      "low52w": 3.3399999141693115,
+      "avgVolume": 2610724,
+      "finalScore": 53,
+      "decision": "HOLD",
+      "confidence": 85,
+      "pillars": [
+        {
+          "name": "Technical",
+          "score": 50,
+          "weight": 30,
+          "details": "Technical outlook: NEUTRAL\n- Trend: bullish (+13)\n- Momentum: bullish (+5)\n- Volume: bearish (-15)\n- Volatility: bearish (-10)\n\nKey signals:\n  * Strong uptrend (ADX=48.0)\n  * MACD bearish and strengthening\n  * OBV confirms downtrend"
+        },
+        {
+          "name": "Fundamental",
+          "score": 46,
+          "weight": 25,
+          "details": "Fundamental analysis for Hycroft Mining Holding Corporat (Basic Materials)\nFundamentals: AVERAGE\n- Valuation: poor (-40)\n- Growth: strong (+50)\n- Profitability: poor (-40)\n- Health: weak (-5)\n\nKey metrics:\n  * EPS expected to grow 83.1%\n  * Negative margin (0.0%)\n  * Very high debt (D/E=282.7%)"
+        },
+        {
+          "name": "Sentiment",
+          "score": 49,
+          "weight": 20,
+          "details": "Social sentiment analysis for $HYMC\nOverall: NEUTRAL\n- Neutral sentiment (low volume): Minimal mentions of $HYMC on X/Twitter with neutral sentiment amid low volume, primarily speculative chatter tied to gold market fluctuations."
+        },
+        {
+          "name": "News",
+          "score": 50,
+          "weight": 10,
+          "details": "News impact"
+        },
+        {
+          "name": "ML Adaptive",
+          "score": 79,
+          "weight": 15,
+          "details": "ML Score: BULLISH (58/100)\nMarket Regime: VOLATILE (confidence: 80%)\nRecommended pillar weights: {'technical': 0.35, 'fundamental': 0.15, 'sentiment': 0.15, 'news': 0.05, 'ml': 0.3}\nKey signals:\n  - EMA 20>50 bullish\n  - Strong trend ADX=49"
+        }
+      ],
+      "levels": {
+        "stopLoss": 27.96,
+        "stopLossPercent": -33.54,
+        "takeProfit1": 56.18,
+        "takeProfit1Percent": 33.54,
+        "takeProfit2": 61.67,
+        "takeProfit2Percent": 46.58,
+        "riskRewardRatio": "1:1.0 / 1:1.4",
+        "atr": 7.06,
+        "support": 25.03,
+        "resistance": 58.73
+      },
+      "analysis": "**Contexte de marché :**  \nHycroft Mining Holding Corporation (HYMC) affiche une performance remarquable avec un prix actuel de 42,07 $, en hausse de 19,48 % récemment. Cependant, le titre reste en deçà de son plus haut sur 52 semaines (58,73 $) et montre une volatilité significative, comme en témoigne un ATR de 7,06 $. Le score final de 53/100 et la recommandation \"HOLD\" reflètent une situation équilibrée entre opportunités et risques.\n\n**Analyse technique :**  \nLa tendance générale est haussière avec un score de +13 et un ADX élevé à 48,0, confirmant une forte dynamique ascendante. Cependant, des signaux contradictoires émergent : le momentum reste positif (+5), mais le MACD devient baissier et se renforce, tandis que le volume (-15) et la volatilité (-10) sont négatifs. L’OBV confirme également une tendance baissière sous-jacente, suggérant une possible correction à court terme. L’outlook technique reste donc NEUTRE, avec un support clé à 25,03 $ et une résistance majeure à 58,73 $.\n\n**Analyse fondamentale :**  \nSur le plan fondamental, HYMC présente un tableau mitigé avec un score moyen de 46/100. La valorisation et la rentabilité sont faibles (-40 chacune), et la santé financière est préoccupante avec un ratio dette/capitaux propres (D/E) très élevé de 282,7 %. Toutefois, la croissance est un point fort (+50), soutenue par une prévision de croissance de l’EPS de 83,1 %, bien que les marges restent inexistantes (0,0 %). Cela reflète une entreprise à fort potentiel mais lourdement endettée, ce qui accroît les risques.\n\n**Sentiment & Social :**  \nLe sentiment global est NEUTRE (score de 49/100), avec un volume de mentions faible sur les réseaux sociaux comme X/Twitter. Les discussions autour de HYMC sont principalement spéculatives et liées aux fluctuations du marché de l’or, sans véritable engouement ni pessimisme marqué. Cela indique une absence de catalyseur social majeur à court terme.\n\n**🎯 Niveaux de trading suggérés :**  \n- **Stop Loss : 27,96 $ (-33,5 %)** - Positionné au-dessus du support clé de 25,03 $, ce niveau protège contre une correction significative tout en tenant compte de la volatilité élevée (ATR de 7,06 $).  \n- **Take Profit 1 : 56,18 $ (+33,5 %)** - Ce niveau correspond à un objectif réaliste de hausse, proche de la résistance majeure à 58,73 $, tout en offrant un ratio risque/rendement équilibré.  \n- **Take Profit 2 : 61,67 $ (+46,6 %)** - Un objectif plus ambitieux, dépassant le plus haut sur 52 semaines, à viser en cas de momentum haussier soutenu.  \n- **Ratio Risk/Reward : 1:1,0 / 1:1,4** - Ces ratios indiquent un équilibre acceptable entre risque et récompense, bien que le potentiel de gain reste modéré face à la volatilité actuelle.\n\n**Conclusion :**  \nHYMC présente une opportunité spéculative grâce à une tendance haussière technique et des perspectives de croissance fondamentales solides (EPS attendu en hausse de 83,1 %). Cependant, les signaux baissiers (MACD, volume) et la santé financière fragile (dette élevée, marges nulles) incitent à la prudence. Le sentiment neutre renforce l’idée d’une absence de catalyseur immédiat. Conformément à la recommandation \"HOLD\", il est préférable de maintenir une position existante tout en surveillant les niveaux de trading suggérés pour optimiser la gestion du risque. Une cassure de la résistance à 58,73 $ pourrait signaler une poursuite haussière, tandis qu’un repli vers le support de 25,03 $ nécessiterait une réévaluation.",
+      "savedAt": "2026-02-04T08:18:17.518Z"
+    },
+    {
+      "id": "CRML_1770192389387",
+      "symbol": "CRML",
+      "timestamp": "2026-02-04T09:06:29.062703",
+      "currentPrice": 15.140000343322754,
+      "change": 20.25,
+      "high52w": 32.150001525878906,
+      "low52w": 3.5199999809265137,
+      "avgVolume": 15348655,
+      "finalScore": 57,
+      "decision": "BUY",
+      "confidence": 85,
+      "pillars": [
+        {
+          "name": "Technical",
+          "score": 56,
+          "weight": 30,
+          "details": "Technical outlook: NEUTRAL\n- Trend: bullish (+17)\n- Momentum: bullish (+40)\n- Volume: bearish (-15)\n- Volatility: neutral (+0)\n\nKey signals:\n  * Strong uptrend (ADX=32.4)\n  * Oversold (K=10.3, D=11.3)\n  * MACD bearish but weakening"
+        },
+        {
+          "name": "Fundamental",
+          "score": 49,
+          "weight": 25,
+          "details": "Fundamental analysis for Critical Metals Corp. (Basic Materials)\nFundamentals: AVERAGE\n- Valuation: poor (-45)\n- Growth: strong (+70)\n- Profitability: poor (-40)\n- Health: good (+5)\n\nKey metrics:\n  * Strong revenue growth (71.4%)\n  * Very high P/S (3184.09)\n  * Negative margin (0.0%)"
+        },
+        {
+          "name": "Sentiment",
+          "score": 54,
+          "weight": 20,
+          "details": "Social sentiment analysis for $CRML\nOverall: NEUTRAL\n- Bullish sentiment (low volume): Sparse mentions on X indicate mild bullish sentiment driven by interest in CRML's rare earth projects amid global supply concerns, with no major influencers or breaking news dominating."
+        },
+        {
+          "name": "News",
+          "score": 50,
+          "weight": 10,
+          "details": "News impact"
+        },
+        {
+          "name": "ML Adaptive",
+          "score": 79,
+          "weight": 15,
+          "details": "ML Score: BULLISH (58/100)\nMarket Regime: VOLATILE (confidence: 80%)\nRecommended pillar weights: {'technical': 0.35, 'fundamental': 0.15, 'sentiment': 0.15, 'news': 0.05, 'ml': 0.3}\nKey signals:\n  - EMA 20>50 bullish\n  - Strong trend ADX=50"
+        }
+      ],
+      "analysis": "**Analyse Financière de Critical Metals Corp. (CRML)**\n\n**Contexte de marché :**  \nCritical Metals Corp. (CRML), cotée à 15,14 $, affiche une performance impressionnante avec une hausse de 20,25 % récemment. Cependant, le titre reste bien en deçà de son plus haut sur 52 semaines (32,15 $), tout en étant significativement au-dessus de son plus bas (3,52 $). Évoluant dans le secteur des matériaux de base, CRML attire l’attention pour ses projets liés aux terres rares, un domaine stratégique dans le contexte actuel de tensions sur les chaînes d’approvisionnement mondiales.\n\n**Analyse technique :**  \nLa perspective technique de CRML est neutre avec un score de 56/100, bien que plusieurs indicateurs montrent des signaux positifs. La tendance générale est haussière (score de +17), soutenue par un ADX élevé de 32,4, indiquant une forte dynamique haussière. Le momentum est également bullish (+40), mais le volume reste baissier (-15), suggérant une faiblesse dans la participation au marché. Les niveaux de survente (K=10,3, D=11,3) pourraient indiquer un potentiel de rebond, bien que le MACD reste baissier, même s’il montre des signes d’affaiblissement. À surveiller : une résistance potentielle vers 32,15 $ (plus haut 52 semaines) et un support autour de 3,52 $ (plus bas 52 semaines).\n\n**Analyse fondamentale :**  \nSur le plan fondamental, CRML obtient un score moyen de 49/100. La croissance des revenus est impressionnante (+71,4 %), ce qui reflète un fort potentiel de développement, notamment dans les terres rares. Cependant, la valorisation est préoccupante avec un P/S extrêmement élevé de 3184,09, indiquant une surévaluation par rapport aux ventes. La rentabilité est également faible avec une marge nette nulle (0,0 %), et bien que la santé financière soit correcte (+5), ces éléments suggèrent des risques à long terme si la rentabilité ne s’améliore pas.\n\n**Sentiment & Social :**  \nLe sentiment social autour de CRML est neutre (score de 54/100). Les mentions sur des plateformes comme X sont limitées, mais un léger optimisme émerge, porté par l’intérêt pour les projets de terres rares de l’entreprise dans un contexte de préoccupations sur l’approvisionnement mondial. Aucun influenceur majeur ou événement récent ne domine la conversation, ce qui limite l’impact du sentiment sur le cours à court terme.\n\n**Conclusion :**  \nEn synthèse, CRML présente un profil mixte. D’un côté, la forte croissance des revenus et la tendance haussière technique, combinées à un score ML élevé (79/100), soutiennent une perspective positive. De l’autre, la surévaluation, l’absence de rentabilité et un volume technique baissier incitent à la prudence. Compte tenu de ces éléments et de la recommandation globale de BUY (score final 57/100), une position d’achat peut être envisagée pour les investisseurs tolérants au risque, avec un suivi attentif des niveaux de résistance et des améliorations fondamentales.",
+      "savedAt": "2026-02-04T08:06:29.387Z"
+    },
+    {
+      "id": "CRML_1770191921343",
+      "symbol": "CRML",
+      "timestamp": "2026-02-04T08:58:41.040648",
+      "currentPrice": 15.140000343322754,
+      "change": 20.25,
+      "high52w": 32.150001525878906,
+      "low52w": 3.5199999809265137,
+      "avgVolume": 15348655,
+      "finalScore": 58,
+      "decision": "BUY",
+      "confidence": 85,
+      "pillars": [
+        {
+          "name": "Technical",
+          "score": 56,
+          "weight": 30,
+          "details": "Technical outlook: NEUTRAL\n- Trend: bullish (+17)\n- Momentum: bullish (+40)\n- Volume: bearish (-15)\n- Volatility: neutral (+0)\n\nKey signals:\n  * Strong uptrend (ADX=32.4)\n  * Oversold (K=10.3, D=11.3)\n  * MACD bearish but weakening"
+        },
+        {
+          "name": "Fundamental",
+          "score": 49,
+          "weight": 25,
+          "details": "Fundamental analysis for Critical Metals Corp. (Basic Materials)\nFundamentals: AVERAGE\n- Valuation: poor (-45)\n- Growth: strong (+70)\n- Profitability: poor (-40)\n- Health: good (+5)\n\nKey metrics:\n  * Strong revenue growth (71.4%)\n  * Very high P/S (3184.09)\n  * Negative margin (0.0%)"
+        },
+        {
+          "name": "Sentiment",
+          "score": 58,
+          "weight": 20,
+          "details": "Social sentiment analysis for $CRML\nOverall: BULLISH\n- Bullish sentiment (low volume): Low volume of mentions on X/Twitter reflects mildly bullish sentiment focused on $CRML's potential in critical metals amid geopolitical supply tensions."
+        },
+        {
+          "name": "News",
+          "score": 50,
+          "weight": 10,
+          "details": "News impact"
+        },
+        {
+          "name": "ML Adaptive",
+          "score": 79,
+          "weight": 15,
+          "details": "ML Score: BULLISH (58/100)\nMarket Regime: VOLATILE (confidence: 80%)\nRecommended pillar weights: {'technical': 0.35, 'fundamental': 0.15, 'sentiment': 0.15, 'news': 0.05, 'ml': 0.3}\nKey signals:\n  - EMA 20>50 bullish\n  - Strong trend ADX=50"
+        }
+      ],
+      "analysis": "**Contexte de marché :**  \nCritical Metals Corp. (CRML) affiche une performance impressionnante avec un prix actuel de 15,14 $, en hausse de 20,25 % sur la période récente. Cependant, le titre reste bien en deçà de son plus haut sur 52 semaines (32,15 $) tout en se situant largement au-dessus de son plus bas (3,52 $). Cette volatilité reflète un intérêt marqué des investisseurs dans le secteur des métaux critiques, porté par des enjeux géopolitiques et des besoins croissants en ressources stratégiques.\n\n**Analyse technique :**  \nLa tendance générale est haussière (score de tendance +17), soutenue par un fort momentum (+40) et un ADX élevé à 32,4, confirmant la robustesse de l’élan actuel. Les indicateurs de survente (K=10,3, D=11,3) suggèrent un potentiel de rebond à court terme, bien que le MACD reste baissier mais en voie d’affaiblissement, ce qui pourrait signaler un retournement. Cependant, le volume baissier (-15) incite à la prudence, car il pourrait limiter la durabilité de la hausse. Les niveaux de résistance à surveiller se situent autour des 32,15 $ (plus haut annuel), avec un support clé vers 3,52 $.\n\n**Analyse fondamentale :**  \nSur le plan fondamental, CRML présente un profil contrasté (score de 49/100). La croissance des revenus est remarquable (+71,4 %), ce qui reflète un fort potentiel dans le secteur des métaux critiques, mais la valorisation est préoccupante avec un P/S extrêmement élevé (3184,09), suggérant une surévaluation. De plus, la rentabilité est inexistante (marge nette de 0,0 %), bien que la santé financière globale reste correcte (+5). Ces éléments indiquent que l’entreprise repose davantage sur des perspectives de croissance que sur des bases solides actuelles.\n\n**Sentiment & Social :**  \nLe sentiment global est haussier (score de 58/100), bien que le volume des mentions sur les réseaux sociaux comme X/Twitter reste faible. Les discussions mettent en avant le potentiel de CRML dans le contexte des tensions géopolitiques sur l’approvisionnement en métaux critiques, ce qui alimente un optimisme modéré parmi les investisseurs.\n\n**Conclusion :**  \nEn synthèse, CRML bénéficie d’une tendance technique haussière et d’un fort potentiel de croissance fondamentale, soutenu par des dynamiques de marché favorables aux métaux critiques. Toutefois, la surévaluation marquée et l’absence de rentabilité actuelle appellent à la prudence. Le score ML élevé (79/100) et la recommandation d’achat (BUY) suggèrent néanmoins une opportunité pour les investisseurs tolérants au risque, avec un suivi attentif des volumes et des niveaux de résistance. Nous recommandons un achat spéculatif, en surveillant les signaux de consolidation à court terme.",
+      "levels": {
+        "stopLoss": 9.73,
+        "stopLossPercent": -35.75,
+        "takeProfit1": 25.97,
+        "takeProfit1Percent": 71.51,
+        "takeProfit2": 22.3,
+        "takeProfit2Percent": 47.27,
+        "riskRewardRatio": "1:2 / 1:3",
+        "atr": 3.15,
+        "support": 9.82,
+        "resistance": 21.86
+      },
+      "savedAt": "2026-02-04T07:58:41.343Z"
+    },
+    {
+      "id": "CRML_1770191647235",
+      "symbol": "CRML",
+      "timestamp": "2026-02-04T08:54:06.933574",
+      "currentPrice": 15.140000343322754,
+      "change": 20.25,
+      "high52w": 32.150001525878906,
+      "low52w": 3.5199999809265137,
+      "avgVolume": 15348655,
+      "finalScore": 59,
+      "decision": "BUY",
+      "confidence": 85,
+      "pillars": [
+        {
+          "name": "Technical",
+          "score": 56,
+          "weight": 30,
+          "details": "Technical outlook: NEUTRAL\n- Trend: bullish (+17)\n- Momentum: bullish (+40)\n- Volume: bearish (-15)\n- Volatility: neutral (+0)\n\nKey signals:\n  * Strong uptrend (ADX=32.4)\n  * Oversold (K=10.3, D=11.3)\n  * MACD bearish but weakening"
+        },
+        {
+          "name": "Fundamental",
+          "score": 49,
+          "weight": 25,
+          "details": "Fundamental analysis for Critical Metals Corp. (Basic Materials)\nFundamentals: AVERAGE\n- Valuation: poor (-45)\n- Growth: strong (+70)\n- Profitability: poor (-40)\n- Health: good (+5)\n\nKey metrics:\n  * Strong revenue growth (71.4%)\n  * Very high P/S (3184.09)\n  * Negative margin (0.0%)"
+        },
+        {
+          "name": "Sentiment",
+          "score": 66,
+          "weight": 20,
+          "details": "Social sentiment analysis for $CRML\nOverall: VERY BULLISH\n- Bullish sentiment (low volume): Discussion around $CRML remains bullish but low-volume, driven by enthusiasm for its Tanbreez rare earth acquisition amid global supply chain concerns."
+        },
+        {
+          "name": "News",
+          "score": 50,
+          "weight": 10,
+          "details": "News impact"
+        },
+        {
+          "name": "ML Adaptive",
+          "score": 79,
+          "weight": 15,
+          "details": "ML Score: BULLISH (58/100)\nMarket Regime: VOLATILE (confidence: 80%)\nRecommended pillar weights: {'technical': 0.35, 'fundamental': 0.15, 'sentiment': 0.15, 'news': 0.05, 'ml': 0.3}\nKey signals:\n  - EMA 20>50 bullish\n  - Strong trend ADX=50"
+        }
+      ],
+      "analysis": "**Contexte de marché :**  \nCritical Metals Corp. (CRML) affiche une performance remarquable avec un prix actuel de 15,14 $, en hausse de 20,25 % sur la période récente. Cependant, le titre reste bien en deçà de son plus haut sur 52 semaines (32,15 $), tout en étant significativement au-dessus de son plus bas (3,52 $), reflétant une volatilité notable et un potentiel de reprise.\n\n**Analyse technique :**  \nLa tendance générale est haussière (score de trend +17, momentum +40), soutenue par un fort signal de tendance ascendante (ADX=32,4). Les indicateurs montrent un titre en situation de survente (K=10,3, D=11,3), ce qui pourrait indiquer une opportunité d’achat à court terme. Cependant, le MACD reste baissier bien qu’en affaiblissement, et le volume est négatif (-15), suggérant une certaine prudence. Les niveaux de support à surveiller se situent autour de 10-12 $, tandis que la résistance clé pourrait se trouver vers 20 $.\n\n**Analyse fondamentale :**  \nLes fondamentaux de CRML sont mitigés (score de 49/100). La croissance des revenus est impressionnante (+71,4 %), mais la valorisation est très faible avec un P/S extrêmement élevé (3184,09) et une marge bénéficiaire inexistante (0,0 %). La santé financière est correcte (+5), mais la rentabilité reste un point faible (-40), ce qui limite l’attrait à long terme sans amélioration des marges.\n\n**Sentiment & Social :**  \nLe sentiment autour de CRML est très haussier (score de 66/100), bien que le volume des discussions soit faible. L’enthousiasme des investisseurs est principalement alimenté par l’acquisition stratégique de Tanbreez dans le secteur des terres rares, un domaine critique face aux tensions sur les chaînes d’approvisionnement mondiales.\n\n**Conclusion :**  \nEn synthèse, CRML présente un profil à risque élevé mais avec un potentiel intéressant. La tendance technique haussière et le sentiment positif, couplés à une forte croissance des revenus, soutiennent la recommandation d’achat (BUY, score final 59/100). Toutefois, la faible rentabilité et la valorisation excessive appellent à une vigilance accrue ; un investissement doit être envisagé avec une gestion rigoureuse des risques.",
+      "levels": {
+        "stopLoss": 9.73,
+        "stopLossPercent": -35.75,
+        "takeProfit1": 25.97,
+        "takeProfit1Percent": 71.51,
+        "takeProfit2": 22.3,
+        "takeProfit2Percent": 47.27,
+        "riskRewardRatio": "1:2 / 1:3",
+        "atr": 3.15,
+        "support": 9.82,
+        "resistance": 21.86
+      },
+      "savedAt": "2026-02-04T07:54:07.235Z"
+    },
+    {
+      "id": "CRML_1770191362454",
+      "symbol": "CRML",
+      "timestamp": "2026-02-04T08:49:22.092027",
+      "currentPrice": 15.140000343322754,
+      "change": 20.25,
+      "high52w": 32.150001525878906,
+      "low52w": 3.5199999809265137,
+      "avgVolume": 15348655,
+      "finalScore": 61,
+      "decision": "BUY",
+      "confidence": 85,
+      "pillars": [
+        {
+          "name": "Technical",
+          "score": 56,
+          "weight": 30,
+          "details": "Technical outlook: NEUTRAL\n- Trend: bullish (+17)\n- Momentum: bullish (+40)\n- Volume: bearish (-15)\n"
+        },
+        {
+          "name": "Fundamental",
+          "score": 49,
+          "weight": 25,
+          "details": "Fundamental analysis for Critical Metals Corp. (Basic Materials)\nFundamentals: AVERAGE\n- Valuation: "
+        },
+        {
+          "name": "Sentiment",
+          "score": 75,
+          "weight": 20,
+          "details": "Social sentiment analysis for $CRML\nOverall: VERY BULLISH\n- Bullish sentiment (medium volume): Recen"
+        },
+        {
+          "name": "News",
+          "score": 50,
+          "weight": 10,
+          "details": "News impact"
+        },
+        {
+          "name": "ML Adaptive",
+          "score": 79,
+          "weight": 15,
+          "details": "ML Score: BULLISH (58/100)\nMarket Regime: VOLATILE (confidence: 80%)\nRecommended pillar weights: {'t"
+        }
+      ],
+      "analysis": "**Contexte de marché :**  \nCritical Metals Corp. (CRML) affiche une performance remarquable avec un prix actuel de 15,14 $, en hausse de 20,25 % sur la période récente. Bien que ce prix reste en deçà du plus haut sur 52 semaines (32,15 $), il est nettement au-dessus du plus bas (3,52 $), signalant une reprise significative. Le score final de 61/100 et la recommandation d'achat (\"BUY\") reflètent un potentiel intéressant malgré des fondamentaux mitigés.\n\n**Analyse technique :**  \nL'analyse technique montre une perspective neutre avec des signaux contrastés. La tendance et le momentum sont clairement haussiers (scores respectifs de +17 et +40), soutenus par un fort mouvement ascendant (ADX=32.4) et des indicateurs d’oversold (K=10.3, D=11.3) suggérant un possible rebond. Cependant, le volume reste baissier (-15), ce qui pourrait indiquer un manque de conviction dans la hausse actuelle, tandis que la volatilité demeure neutre. Les niveaux de support et de résistance clés ne sont pas précisés dans les données, mais la dynamique haussière reste un point positif.\n\n**Analyse fondamentale :**  \nSur le plan fondamental, CRML présente une situation moyenne. La valorisation est faible (-45) et la rentabilité est préoccupante (-40), ce qui reflète des défis dans la génération de bénéfices. En revanche, la croissance est un point fort (+70), probablement liée à des perspectives prometteuses dans le secteur des matériaux de base, et la santé financière est légèrement positive (+5). Ces éléments suggèrent un potentiel à long terme, mais des risques subsistent en raison de la faiblesse de la rentabilité.\n\n**Sentiment & Social :**  \nLe sentiment autour de CRML est très haussier (score de 75/100), porté par des annonces récentes concernant des intercepts de lithium de haute qualité au projet Tanbreez au Groenland. Ces développements ont généré un engouement notable sur les réseaux sociaux et parmi les investisseurs, bien que le volume de discussion reste moyen. Ce sentiment positif renforce l’attractivité du titre à court terme.\n\n**Conclusion :**  \nEn synthèse, CRML présente un profil intéressant pour les investisseurs, avec une dynamique technique haussière et un sentiment social très favorable, soutenu par des annonces stratégiques. Cependant, les faiblesses fondamentales, notamment en termes de valorisation et de rentabilité, appellent à la prudence. Compte tenu du score final de 61/100 et de la recommandation \"BUY\", nous conseillons un achat, mais avec une gestion rigoureuse des risques, en surveillant de près les volumes et les résultats financiers à venir.",
+      "levels": {
+        "stopLoss": 9.73,
+        "stopLossPercent": -35.75,
+        "takeProfit1": 25.97,
+        "takeProfit1Percent": 71.51,
+        "takeProfit2": 22.3,
+        "takeProfit2Percent": 47.27,
+        "riskRewardRatio": "1:2 / 1:3",
+        "atr": 3.15,
+        "support": 9.82,
+        "resistance": 21.86
+      },
+      "savedAt": "2026-02-04T07:49:22.454Z"
+    }
+  ]
+}
