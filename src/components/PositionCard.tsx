@@ -30,7 +30,7 @@ function PillarBar({ name, score, color }: { name: string; score: number; color:
       <div className="flex justify-between text-xs mb-1">
         <span className="text-zinc-400">{name}</span>
         <span className={score >= 0 ? "text-emerald-400" : "text-red-400"}>
-          {score >= 0 ? "+" : ""}{score.toFixed(1)}
+          {score >= 0 ? "+" : ""}{(score ?? 0).toFixed(1)}
         </span>
       </div>
       <div className="h-2 bg-zinc-700 rounded-full overflow-hidden">
@@ -65,14 +65,14 @@ export function PositionCard({ position }: PositionCardProps) {
           </span>
           {position.scoreAtEntry && (
             <span className="text-xs px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400">
-              Score: {position.scoreAtEntry.toFixed(0)}
+              Score: {(position.scoreAtEntry ?? 0).toFixed(0)}
             </span>
           )}
         </div>
         <div className={`flex items-center gap-1 ${isProfit ? "text-emerald-400" : "text-red-400"}`}>
           {isProfit ? <TrendingUp size={18} /> : <TrendingDown size={18} />}
           <span className="font-semibold">
-            {isProfit ? "+" : ""}{position.pnlPercent.toFixed(2)}%
+            {isProfit ? "+" : ""}{(position.pnlPercent ?? 0).toFixed(2)}%
           </span>
         </div>
       </div>
@@ -104,16 +104,16 @@ export function PositionCard({ position }: PositionCardProps) {
           <span className="text-zinc-500">Investi</span>
           <p className="text-white font-medium flex items-center gap-1">
             <DollarSign size={12} className="text-zinc-500" />
-            {posValue.toFixed(2)}
+            {(posValue ?? 0).toFixed(2)}
           </p>
         </div>
         <div>
           <span className="text-zinc-500">Entry</span>
-          <p className="text-white font-medium">${position.entryPrice.toFixed(2)}</p>
+          <p className="text-white font-medium">${(position.entryPrice ?? 0).toFixed(2)}</p>
         </div>
         <div>
           <span className="text-zinc-500">Current</span>
-          <p className="text-white font-medium">${position.currentPrice.toFixed(2)}</p>
+          <p className="text-white font-medium">${(position.currentPrice ?? 0).toFixed(2)}</p>
         </div>
       </div>
 
@@ -121,7 +121,7 @@ export function PositionCard({ position }: PositionCardProps) {
       <div className="flex items-center justify-between py-2 border-t border-zinc-700/50 mb-2">
         <span className="text-zinc-500 text-sm">P&L</span>
         <p className={`font-semibold ${isProfit ? "text-emerald-400" : "text-red-400"}`}>
-          {isProfit ? "+" : ""}${position.pnl.toFixed(2)}
+          {isProfit ? "+" : ""}${(position.pnl ?? 0).toFixed(2)}
         </p>
       </div>
 
@@ -131,13 +131,13 @@ export function PositionCard({ position }: PositionCardProps) {
           {position.stopLoss ? (
             <div className="flex items-center gap-1 text-red-400">
               <Shield size={12} />
-              <span>SL: ${position.stopLoss.toFixed(2)}</span>
+              <span>SL: ${(position.stopLoss ?? 0).toFixed(2)}</span>
             </div>
           ) : <div />}
           {position.takeProfit ? (
             <div className="flex items-center gap-1 text-emerald-400">
               <Target size={12} />
-              <span>TP: ${position.takeProfit.toFixed(2)}</span>
+              <span>TP: ${(position.takeProfit ?? 0).toFixed(2)}</span>
             </div>
           ) : <div />}
         </div>
