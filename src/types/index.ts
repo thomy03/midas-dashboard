@@ -76,6 +76,7 @@ export interface PortfolioSnapshot {
 }
 
 export interface PortfolioData {
+  cashBalance?: number;
   totalValue: number;
   totalPnl: number;
   totalPnlPercent: number;

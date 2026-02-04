@@ -3,11 +3,14 @@ import { NextRequest, NextResponse } from "next/server";
 const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8000";
 
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const period = searchParams.get("period") || "24h";
+  const symbol = request.nextUrl.searchParams.get("symbol");
+
+  if (!symbol || !/^[A-Z0-9.]{1,10}$/.test(symbol)) {
+    return NextResponse.json({ error: "Invalid symbol" }, { status: 400 });
+  }
 
   try {
-    const response = await fetch(`${BACKEND_URL}/portfolio/history?period=${period}`, {
+    const response = await fetch(`${BACKEND_URL}/position/history?symbol=${symbol}`, {
       cache: "no-store",
     });
 
@@ -18,13 +21,10 @@ export async function GET(request: NextRequest) {
     const data = await response.json();
     return NextResponse.json(data);
   } catch (error) {
-    console.error("Portfolio history API error:", error);
-    
-    // Return empty data instead of mock - be honest about what we have
+    console.error("Position history API error:", error);
     return NextResponse.json({ 
-      history: [], 
-      period,
-      message: "Historique non disponible - bot lancé récemment"
+      history: [],
+      message: "Historique non disponible"
     });
   }
 }
