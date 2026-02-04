@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import { StatusBadge } from "@/components";
+import { StatusBadge, NotificationButton } from "@/components";
 import { BotStatus } from "@/types";
 import {
   Power, PowerOff, RotateCcw, Download, Clock, Activity, TrendingUp,
   Loader2, Radar, Brain, FileText, Terminal, RefreshCw, ChevronDown,
   ChevronUp, Zap, Target, ExternalLink, BarChart3, Settings2, DollarSign,
-  Hash, Percent,
+  Hash, Percent, Bell, MessageCircle, Mail, ToggleLeft, ToggleRight,
+  CheckCircle, XCircle, Save, Eye, EyeOff,
 } from "lucide-react";
 
 interface Candidate {
@@ -46,6 +47,22 @@ interface Progress {
   candidates_found?: number;
 }
 
+interface AlertSettings {
+  telegram: {
+    enabled: boolean;
+    botToken: string;
+    chatId: string;
+  };
+  email: {
+    enabled: boolean;
+    smtpHost: string;
+    smtpPort: number;
+    username: string;
+    password: string;
+    recipient: string;
+  };
+}
+
 export default function ControlPage() {
   const [status, setStatus] = useState<BotStatus | null>(null);
   const [loading, setLoading] = useState(true);
@@ -63,6 +80,18 @@ export default function ControlPage() {
   const [maxStocks, setMaxStocks] = useState<number | "">(100);
   const [maxPrice, setMaxPrice] = useState<number | "">("");
   const [minScore, setMinScore] = useState<number>(70);
+  
+  // Paper Mode & Alerts
+  const [paperMode, setPaperMode] = useState(true);
+  const [alertsExpanded, setAlertsExpanded] = useState(false);
+  const [alertSettings, setAlertSettings] = useState<AlertSettings>({
+    telegram: { enabled: false, botToken: "", chatId: "" },
+    email: { enabled: false, smtpHost: "smtp.gmail.com", smtpPort: 587, username: "", password: "", recipient: "" },
+  });
+  const [showTelegramToken, setShowTelegramToken] = useState(false);
+  const [showEmailPassword, setShowEmailPassword] = useState(false);
+  const [settingsSaving, setSettingsSaving] = useState(false);
+  const [settingsMessage, setSettingsMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   const fetchStatus = async () => {
     try {
@@ -91,7 +120,6 @@ export default function ControlPage() {
       const json = await res.json();
       setPrepareResult(json);
       
-      // Fetch progress if running
       if (json.status === "running") {
         const progressRes = await fetch("/api/prepare?type=progress");
         setProgress(await progressRes.json());
@@ -101,9 +129,21 @@ export default function ControlPage() {
     }
   };
 
+  const fetchSettings = async () => {
+    try {
+      const res = await fetch("/api/settings");
+      const json = await res.json();
+      setPaperMode(json.paperMode);
+      setAlertSettings(json.alerts);
+    } catch (error) {
+      console.error("Failed to fetch settings:", error);
+    }
+  };
+
   useEffect(() => {
     fetchStatus();
     fetchPrepareResults();
+    fetchSettings();
     const statusInterval = setInterval(fetchStatus, 10000);
     const prepareInterval = setInterval(fetchPrepareResults, 3000);
     return () => {
@@ -142,11 +182,7 @@ export default function ControlPage() {
       const res = await fetch("/api/prepare", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          maxStocks: maxStocks || null, 
-          maxPrice: maxPrice || null,
-          minScore 
-        }),
+        body: JSON.stringify({ maxStocks: maxStocks || null, maxPrice: maxPrice || null, minScore }),
       });
       if (res.ok) {
         setPrepareResult({ status: "running", candidates: [] });
@@ -156,6 +192,48 @@ export default function ControlPage() {
       console.error("Failed to start prepare:", error);
     } finally {
       setActionLoading(null);
+    }
+  };
+
+  const handlePaperModeToggle = async () => {
+    const newValue = !paperMode;
+    setPaperMode(newValue);
+    try {
+      await fetch("/api/settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ paperMode: newValue }),
+      });
+    } catch (error) {
+      console.error("Failed to save paper mode:", error);
+      setPaperMode(!newValue); // Revert on error
+    }
+  };
+
+  const handleSaveAlerts = async () => {
+    setSettingsSaving(true);
+    setSettingsMessage(null);
+    try {
+      const res = await fetch("/api/settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          telegram: alertSettings.telegram,
+          email: alertSettings.email,
+        }),
+      });
+      const json = await res.json();
+      if (res.ok) {
+        setSettingsMessage({ type: "success", text: "Settings saved successfully" });
+        fetchSettings(); // Reload to get masked values
+      } else {
+        setSettingsMessage({ type: "error", text: json.error || "Failed to save" });
+      }
+    } catch (error) {
+      setSettingsMessage({ type: "error", text: "Connection error" });
+    } finally {
+      setSettingsSaving(false);
+      setTimeout(() => setSettingsMessage(null), 3000);
     }
   };
 
@@ -197,6 +275,267 @@ export default function ControlPage() {
         <StatusBadge status={status} size="lg" />
       </div>
 
+      {/* PAPER MODE TOGGLE */}
+      <div className="bg-gradient-to-br from-violet-500/20 to-purple-500/20 border border-violet-500/30 rounded-xl p-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-violet-500/30 rounded-lg">
+              <DollarSign className="text-violet-400" size={24} />
+            </div>
+            <div>
+              <h2 className="text-lg font-bold text-violet-400">Trading Mode</h2>
+              <p className="text-xs text-zinc-400">
+                {paperMode ? "Paper trading (simulation)" : "⚠️ LIVE trading (real money)"}
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={handlePaperModeToggle}
+            className={`relative flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
+              paperMode 
+                ? "bg-violet-500/30 border border-violet-500/50 text-violet-300" 
+                : "bg-red-500/30 border border-red-500/50 text-red-300"
+            }`}
+          >
+            {paperMode ? (
+              <>
+                <ToggleLeft size={20} />
+                <span className="text-sm font-medium">Paper</span>
+              </>
+            ) : (
+              <>
+                <ToggleRight size={20} />
+                <span className="text-sm font-medium">LIVE</span>
+              </>
+            )}
+          </button>
+        </div>
+        {!paperMode && (
+          <div className="mt-3 p-2 bg-red-500/20 border border-red-500/30 rounded-lg text-center text-sm text-red-300">
+            ⚠️ Attention: Les trades seront exécutés avec de l&apos;argent réel
+          </div>
+        )}
+      </div>
+
+      {/* ALERTS CONFIGURATION */}
+      <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 rounded-xl overflow-hidden">
+        <div
+          className="flex items-center justify-between p-4 cursor-pointer"
+          onClick={() => setAlertsExpanded(!alertsExpanded)}
+        >
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-blue-500/30 rounded-lg">
+              <Bell className="text-blue-400" size={24} />
+            </div>
+            <div>
+              <h2 className="text-lg font-bold text-blue-400">Alertes & Notifications</h2>
+              <p className="text-xs text-zinc-400">
+                {alertSettings.telegram.enabled ? "Telegram ✓" : ""} 
+                {alertSettings.email.enabled ? " Email ✓" : ""}
+                {!alertSettings.telegram.enabled && !alertSettings.email.enabled ? "Non configuré" : ""}
+              </p>
+            </div>
+          </div>
+          {alertsExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+        </div>
+
+        {alertsExpanded && (
+          <div className="px-4 pb-4 space-y-4">
+            {/* Push Notifications */}
+            <div className="p-4 bg-black/30 rounded-lg">
+              <div className="flex items-center gap-2 mb-3">
+                <Bell className="text-purple-400" size={20} />
+                <span className="font-medium">Push Notifications</span>
+              </div>
+              <NotificationButton />
+            </div>
+
+            {/* Telegram */}
+            <div className="p-4 bg-black/30 rounded-lg space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="text-blue-400" size={20} />
+                  <span className="font-medium">Telegram</span>
+                </div>
+                <button
+                  onClick={() => setAlertSettings(s => ({
+                    ...s,
+                    telegram: { ...s.telegram, enabled: !s.telegram.enabled }
+                  }))}
+                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                    alertSettings.telegram.enabled
+                      ? "bg-emerald-500/30 text-emerald-400 border border-emerald-500/50"
+                      : "bg-zinc-700 text-zinc-400"
+                  }`}
+                >
+                  {alertSettings.telegram.enabled ? "Activé" : "Désactivé"}
+                </button>
+              </div>
+              
+              {alertSettings.telegram.enabled && (
+                <div className="space-y-2">
+                  <div>
+                    <label className="text-xs text-zinc-500 mb-1 block">Bot Token</label>
+                    <div className="relative">
+                      <input
+                        type={showTelegramToken ? "text" : "password"}
+                        value={alertSettings.telegram.botToken}
+                        onChange={(e) => setAlertSettings(s => ({
+                          ...s,
+                          telegram: { ...s.telegram, botToken: e.target.value }
+                        }))}
+                        placeholder="123456:ABC-DEF..."
+                        className="w-full p-2 pr-10 bg-zinc-800 border border-zinc-700 rounded-lg text-sm"
+                      />
+                      <button
+                        onClick={() => setShowTelegramToken(!showTelegramToken)}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500"
+                      >
+                        {showTelegramToken ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-xs text-zinc-500 mb-1 block">Chat ID</label>
+                    <input
+                      type="text"
+                      value={alertSettings.telegram.chatId}
+                      onChange={(e) => setAlertSettings(s => ({
+                        ...s,
+                        telegram: { ...s.telegram, chatId: e.target.value }
+                      }))}
+                      placeholder="-1001234567890"
+                      className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-lg text-sm"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Email */}
+            <div className="p-4 bg-black/30 rounded-lg space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Mail className="text-pink-400" size={20} />
+                  <span className="font-medium">Email</span>
+                </div>
+                <button
+                  onClick={() => setAlertSettings(s => ({
+                    ...s,
+                    email: { ...s.email, enabled: !s.email.enabled }
+                  }))}
+                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                    alertSettings.email.enabled
+                      ? "bg-emerald-500/30 text-emerald-400 border border-emerald-500/50"
+                      : "bg-zinc-700 text-zinc-400"
+                  }`}
+                >
+                  {alertSettings.email.enabled ? "Activé" : "Désactivé"}
+                </button>
+              </div>
+
+              {alertSettings.email.enabled && (
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="text-xs text-zinc-500 mb-1 block">SMTP Host</label>
+                    <input
+                      type="text"
+                      value={alertSettings.email.smtpHost}
+                      onChange={(e) => setAlertSettings(s => ({
+                        ...s,
+                        email: { ...s.email, smtpHost: e.target.value }
+                      }))}
+                      className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-lg text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs text-zinc-500 mb-1 block">Port</label>
+                    <input
+                      type="number"
+                      value={alertSettings.email.smtpPort}
+                      onChange={(e) => setAlertSettings(s => ({
+                        ...s,
+                        email: { ...s.email, smtpPort: parseInt(e.target.value) || 587 }
+                      }))}
+                      className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-lg text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs text-zinc-500 mb-1 block">Username</label>
+                    <input
+                      type="text"
+                      value={alertSettings.email.username}
+                      onChange={(e) => setAlertSettings(s => ({
+                        ...s,
+                        email: { ...s.email, username: e.target.value }
+                      }))}
+                      className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-lg text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs text-zinc-500 mb-1 block">Password</label>
+                    <div className="relative">
+                      <input
+                        type={showEmailPassword ? "text" : "password"}
+                        value={alertSettings.email.password}
+                        onChange={(e) => setAlertSettings(s => ({
+                          ...s,
+                          email: { ...s.email, password: e.target.value }
+                        }))}
+                        className="w-full p-2 pr-10 bg-zinc-800 border border-zinc-700 rounded-lg text-sm"
+                      />
+                      <button
+                        onClick={() => setShowEmailPassword(!showEmailPassword)}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500"
+                      >
+                        {showEmailPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                    </div>
+                  </div>
+                  <div className="col-span-2">
+                    <label className="text-xs text-zinc-500 mb-1 block">Recipient Email</label>
+                    <input
+                      type="email"
+                      value={alertSettings.email.recipient}
+                      onChange={(e) => setAlertSettings(s => ({
+                        ...s,
+                        email: { ...s.email, recipient: e.target.value }
+                      }))}
+                      className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-lg text-sm"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Save Button */}
+            <button
+              onClick={handleSaveAlerts}
+              disabled={settingsSaving}
+              className="w-full flex items-center justify-center gap-2 p-3 bg-blue-500/30 border border-blue-500/50 rounded-xl text-blue-300 font-medium hover:bg-blue-500/40 disabled:opacity-50"
+            >
+              {settingsSaving ? (
+                <Loader2 className="animate-spin" size={20} />
+              ) : (
+                <Save size={20} />
+              )}
+              Sauvegarder
+            </button>
+
+            {settingsMessage && (
+              <div className={`flex items-center gap-2 p-2 rounded-lg text-sm ${
+                settingsMessage.type === "success" 
+                  ? "bg-emerald-500/20 text-emerald-400" 
+                  : "bg-red-500/20 text-red-400"
+              }`}>
+                {settingsMessage.type === "success" ? <CheckCircle size={16} /> : <XCircle size={16} />}
+                {settingsMessage.text}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
       {/* PREPARE TRADES */}
       <div className="bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-xl overflow-hidden">
         <div className="flex items-center justify-between p-4 cursor-pointer" onClick={() => setPrepareExpanded(!prepareExpanded)}>
@@ -217,7 +556,15 @@ export default function ControlPage() {
 
         {prepareExpanded && (
           <div className="px-4 pb-4 space-y-4">
-            {/* Config toggle */}
+            {/* Push Notifications */}
+            <div className="p-4 bg-black/30 rounded-lg">
+              <div className="flex items-center gap-2 mb-3">
+                <Bell className="text-purple-400" size={20} />
+                <span className="font-medium">Push Notifications</span>
+              </div>
+              <NotificationButton />
+            </div>
+
             <button 
               onClick={() => setShowConfig(!showConfig)}
               className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
@@ -227,7 +574,6 @@ export default function ControlPage() {
               <ChevronDown size={14} className={`transition-transform ${showConfig ? "rotate-180" : ""}`} />
             </button>
 
-            {/* Config options */}
             {showConfig && (
               <div className="grid grid-cols-3 gap-3 p-3 bg-black/30 rounded-lg">
                 <div>
@@ -280,7 +626,6 @@ export default function ControlPage() {
               </div>
             )}
 
-            {/* Launch Button */}
             <button
               onClick={handlePrepare}
               disabled={actionLoading === "prepare" || prepareResult.status === "running"}
@@ -299,7 +644,6 @@ export default function ControlPage() {
               )}
             </button>
 
-            {/* Progress bar */}
             {prepareResult.status === "running" && progress.total > 0 && (
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
@@ -317,7 +661,6 @@ export default function ControlPage() {
               </div>
             )}
 
-            {/* Results */}
             {prepareResult.status === "success" && prepareResult.candidates && prepareResult.candidates.length > 0 && (
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-sm">

@@ -5,3 +5,4 @@ export { PositionCard } from "./PositionCard";
 export { PortfolioChart } from "./PortfolioChart";
 export { LogEntryItem } from "./LogEntryItem";
 export { AnalysisCard } from "./AnalysisCard";
+export { NotificationButton } from "./NotificationButton";
