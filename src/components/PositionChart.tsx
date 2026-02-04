@@ -22,12 +22,15 @@ export function PositionChart({ symbol, entryPrice, onClose }: PositionChartProp
         setData(json.history || []);
       } catch (e) {
         console.error(e);
+        setData([]);
       } finally {
         setLoading(false);
       }
     }
     fetchHistory();
   }, [symbol]);
+
+  const safeEntryPrice = Number(entryPrice) || 0;
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
@@ -40,7 +43,7 @@ export function PositionChart({ symbol, entryPrice, onClose }: PositionChartProp
         </div>
         
         <div className="text-sm text-gray-400 mb-4">
-          Prix d'entrée: <span className="text-white">${entryPrice.toFixed(2)}</span>
+          Prix d'entrée: <span className="text-white">${safeEntryPrice.toFixed(2)}</span>
         </div>
 
         {loading ? (
@@ -52,18 +55,24 @@ export function PositionChart({ symbol, entryPrice, onClose }: PositionChartProp
             Historique non disponible (position récente)
           </div>
         ) : (
-          <div className="h-48">
+          <div className="h-48" style={{ minHeight: '150px', minWidth: '200px' }}>
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={data}>
                 <XAxis 
                   dataKey="time" 
                   tick={{ fill: "#9ca3af", fontSize: 10 }}
-                  tickFormatter={(v) => new Date(v).toLocaleDateString()}
+                  tickFormatter={(v) => {
+                    try {
+                      return new Date(v).toLocaleDateString();
+                    } catch {
+                      return '';
+                    }
+                  }}
                 />
                 <YAxis 
                   domain={["auto", "auto"]}
                   tick={{ fill: "#9ca3af", fontSize: 10 }}
-                  tickFormatter={(v) => `$${v}`}
+                  tickFormatter={(v) => `$${Number(v || 0).toFixed(0)}`}
                 />
                 <Tooltip
                   contentStyle={{ backgroundColor: "#1f2937", border: "none" }}
@@ -75,14 +84,6 @@ export function PositionChart({ symbol, entryPrice, onClose }: PositionChartProp
                   stroke="#8b5cf6" 
                   dot={false}
                   strokeWidth={2}
-                />
-                {/* Entry price line */}
-                <Line
-                  type="monotone"
-                  dataKey={() => entryPrice}
-                  stroke="#6b7280"
-                  strokeDasharray="5 5"
-                  dot={false}
                 />
               </LineChart>
             </ResponsiveContainer>

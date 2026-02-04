@@ -19,22 +19,27 @@ const COLORS = [
 ];
 
 export function AllocationPieChart({ positions, cashBalance }: AllocationPieChartProps) {
-  const data = [
-    ...positions.map((p, i) => ({
-      name: p.symbol,
+  // Safely build data array
+  const positionData = (positions || [])
+    .filter(p => p && typeof p.currentValue === 'number' && p.currentValue > 0)
+    .map((p, i) => ({
+      name: p.symbol || 'Unknown',
       value: p.currentValue,
       color: COLORS[i % COLORS.length],
-    })),
-    {
+    }));
+
+  const data = [
+    ...positionData,
+    ...(cashBalance > 0 ? [{
       name: "Liquidités",
       value: cashBalance,
       color: "#6b7280",
-    },
-  ].filter(d => d.value > 0);
+    }] : []),
+  ];
 
-  const total = data.reduce((sum, d) => sum + d.value, 0);
+  const total = data.reduce((sum, d) => sum + (d.value || 0), 0);
 
-  if (total === 0) {
+  if (data.length === 0 || total <= 0) {
     return (
       <div className="flex items-center justify-center h-48 text-gray-500">
         Aucune donnée de répartition
@@ -43,18 +48,20 @@ export function AllocationPieChart({ positions, cashBalance }: AllocationPieChar
   }
 
   return (
-    <div className="h-64">
+    <div className="h-64 w-full" style={{ minHeight: '200px', minWidth: '200px' }}>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={50}
-            outerRadius={80}
+            innerRadius={40}
+            outerRadius={70}
             paddingAngle={2}
             dataKey="value"
-            label={({ name, percent }) => `${name} ${((percent || 0) * 100).toFixed(0)}%`}
+            label={({ name, percent }) => 
+              `${name} ${((percent || 0) * 100).toFixed(0)}%`
+            }
             labelLine={false}
           >
             {data.map((entry, index) => (
@@ -62,7 +69,10 @@ export function AllocationPieChart({ positions, cashBalance }: AllocationPieChar
             ))}
           </Pie>
           <Tooltip
-            formatter={(value: any) => [`$${Number(value || 0).toFixed(2)}`, "Valeur"]}
+            formatter={(value: any) => {
+              const num = Number(value) || 0;
+              return [`$${num.toFixed(2)}`, "Valeur"];
+            }}
             contentStyle={{ backgroundColor: "#1f2937", border: "none", borderRadius: "8px" }}
           />
           <Legend />
