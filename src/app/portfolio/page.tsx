@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { PortfolioChart, PositionCard } from "@/components";
 import { AllocationPieChart } from "@/components/AllocationPieChart";
-import { PositionChart } from "@/components/PositionChart";
 import { PortfolioData, PortfolioSnapshot } from "@/types";
 import { RefreshCw, TrendingUp, TrendingDown, Wallet, PieChart, Banknote } from "lucide-react";
 
@@ -16,8 +15,7 @@ export default function PortfolioPage() {
   const [period, setPeriod] = useState<Period>("24h");
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [selectedPosition, setSelectedPosition] = useState<{symbol: string, entryPrice: number} | null>(null);
-  const [showAllocation, setShowAllocation] = useState(true);
+    const [showAllocation, setShowAllocation] = useState(true);
 
   const fetchData = useCallback(async () => {
     try {
@@ -177,14 +175,7 @@ export default function PortfolioPage() {
         {data?.positions?.length ? (
           <div className="space-y-3">
             {data.positions.map((position, idx) => (
-              <div 
-                key={idx} 
-                onClick={() => setSelectedPosition({
-                  symbol: position.symbol,
-                  entryPrice: position.entryPrice || 0
-                })}
-                className="cursor-pointer hover:scale-[1.01] transition-transform"
-              >
+              <div key={idx}>
                 <PositionCard position={position} />
               </div>
             ))}
@@ -194,19 +185,10 @@ export default function PortfolioPage() {
             Aucune position ouverte
           </div>
         )}
-        <p className="text-xs text-zinc-600 mt-2 text-center">
-          Cliquez sur une position pour voir son évolution
-        </p>
+        
       </div>
 
-      {/* Position Detail Modal */}
-      {selectedPosition && (
-        <PositionChart
-          symbol={selectedPosition.symbol}
-          entryPrice={selectedPosition.entryPrice}
-          onClose={() => setSelectedPosition(null)}
-        />
-      )}
+      
     </div>
   );
 }

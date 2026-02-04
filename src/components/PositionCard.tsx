@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Position } from "@/types";
+import { PositionCardChart } from "./PositionCardChart";
 import { TrendingUp, TrendingDown, Clock, ChevronDown, ChevronUp, Target, Shield, Brain, Building2, DollarSign } from "lucide-react";
 
 interface PositionCardProps {
@@ -187,6 +188,12 @@ export function PositionCard({ position }: PositionCardProps) {
               </p>
             </div>
           )}
+          
+          {/* Position price chart */}
+          <div className="mt-4 pt-3 border-t border-zinc-700/30">
+            <h4 className="text-xs font-semibold text-zinc-300 mb-2">📈 Évolution du prix</h4>
+            <PositionCardChart symbol={position.symbol} entryPrice={position.entryPrice} />
+          </div>
         </div>
       )}
     </div>
